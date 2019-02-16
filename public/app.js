@@ -15,3 +15,14 @@ $(document).on("click", ".saveArticle", function () {
       location.reload(true)
     );
 });
+
+$(document).on("click", ".deleteArticle", function() {
+  var thisId = $(this).attr("data-id");
+
+  $.ajax({
+    method: "POST",
+    url: "/articles/delete/" + thisId,
+  }).then(
+    location.reload(true)
+  )
+})

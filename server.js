@@ -19,7 +19,7 @@ app.use(express.static("public"));
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoArticles";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 // Set Handlebars 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

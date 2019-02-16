@@ -61,6 +61,17 @@ module.exports = function (app) {
     res.redirect("./")
   });
 
+  app.get("/clearsaved", function(req, res) {
+    db.Article.deleteMany({ saved: true })
+    .then(function (dbArticles) {
+      res.json(dbArticles);
+    })
+    .catch(function (err) {
+      res.json(err);
+    });
+  res.redirect("./savedArticles")
+  })
+
   // Route for getting all Articles from the db
   app.get("/articles", function (req, res) {
     // TODO: Finish the route so it grabs all of the articles
@@ -77,6 +88,18 @@ module.exports = function (app) {
     // TODO
     // ====
     db.Article.updateOne({ _id: req.params.id }, { saved: true })
+      .then(function (dbArticle) {
+        res.json(dbArticle)
+      })
+      .catch(function (err) {
+        res.json(err);
+      })
+  });
+
+  app.post("/articles/delete/:id", function (req, res) {
+    // TODO
+    // ====
+    db.Article.deleteOne({ _id: req.params.id })
       .then(function (dbArticle) {
         res.json(dbArticle)
       })
