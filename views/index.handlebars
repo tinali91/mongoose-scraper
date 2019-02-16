@@ -14,8 +14,8 @@
         <a class="nav-link" href="/savedArticles">Saved articles</a>
       </li>
       <form class="form-inline">
-        <button id="scrape" class="btn btn-outline-success" type="button">Scrape new articles!</button>
-        <button id="clear" class="btn btn-outline-success" type="button">Clear articles</button>
+        <a id="scrape" class="btn btn-outline-success" role="button" href="/scrape">Scrape new articles!</a>
+        <a id="clear" class="btn btn-outline-success" role="button" href="/clear">Clear articles</a>
       </form>
     </ul>
   </div>
@@ -34,11 +34,12 @@
       {{#each articles}}
       <div class="card">
         <div class="card-body">
-          <a href="https://www.teenvogue.com/{{link}}">
-            <h5 class="card-title">{{title}}</h2>
+          <a id="linkinput"href="https://www.teenvogue.com/{{link}}">
+            <h5 id="titleinput" class="card-title">{{title}}</h2>
           </a>
-          <p class="card-text">{{summary}}</p>
-          <button class="btn btn-primary saveNote" data-id="{{this.id}}">Save article</button>
+          <p id="summaryinput" class="card-text">{{summary}}<span>
+              <button class="btn btn-primary saveArticle" data-id="{{this.id}}">Save article</button>
+            </span></p>
         </div>
       </div>
       {{/each}}

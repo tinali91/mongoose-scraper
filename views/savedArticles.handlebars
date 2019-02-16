@@ -29,6 +29,19 @@
 
 <div class="container">
   <div class="row">
-
+    <div class="col-md-12">
+      {{#each articles}}
+      <div class="card">
+        <div class="card-body">
+          <a id="linkinput" href="https://www.teenvogue.com/{{link}}">
+            <h5 id="titleinput" class="card-title">{{title}}</h2>
+          </a>
+          <p id="summaryinput" class="card-text">{{summary}}<span>
+              <button class="btn btn-primary saveArticle" data-id="{{this.id}}">Save article</button>
+            </span></p>
+        </div>
+      </div>
+      {{/each}}
+    </div>
   </div>
 </div>
