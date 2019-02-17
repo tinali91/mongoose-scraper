@@ -26,3 +26,47 @@ $(document).on("click", ".deleteArticle", function() {
     location.reload(true)
   )
 })
+
+$(document).on("click", "#saveNote", function() {
+  event.preventDefault();
+  var thisId = $(this).attr("data-id");
+
+  $.ajax({
+    method: "POST",
+    url: "/articles/" + thisId,
+    data: {
+      body: $("#newNote").val()
+    }
+  }).then(function(data) {
+    console.log(data.note.body);
+    $('#noteModal').modal('toggle')
+  });
+  $("#newNote").val("");
+})
+
+$(document).on("click", ".deleteNote", function() {
+  var thisId = $(this).attr("data-id");
+
+  $.ajax({
+    method: "POST",
+    url: "/notes/delete/" + thisId,
+  }).then(function(data) {
+    console.log(data.note);
+    $('#noteModal').modal('toggle')
+  })
+})
+
+$(document).on("click", ".addNote", function() {
+  var thisId = $(this).attr("data-id");
+
+  $.ajax({
+    method: "GET",
+    url: "articles/" + thisId
+  })
+  .then(function(data) {
+    console.log(data);
+    if(data.note) {
+      $("#noteBody").text(data.note.body);
+    }
+  })
+})

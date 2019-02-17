@@ -75,7 +75,7 @@ module.exports = function (app) {
   // Route for getting all Articles from the db
   app.get("/articles", function (req, res) {
     // TODO: Finish the route so it grabs all of the articles
-    db.Article.find({})
+    db.Article.find({}).populate("note")
       .then(function (dbArticle) {
         res.json(dbArticle);
       })
@@ -141,4 +141,18 @@ module.exports = function (app) {
     // then find an article from the req.params.id
     // and update it's "note" property with the _id of the new note
   });
+
+  app.post("/notes/delete/:id", function(req, res) {
+
+    db.Note.deleteOne({id: req.params.id})
+    .then(function(dbNote) {
+      return db.Article.findOneAndUpdate({id: req.params.id}, {note: dbNote._id });
+    })
+    .then(function(dbArticle) {
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    })
+  })
 };

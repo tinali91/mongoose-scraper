@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Navbar</a>
+  <a class="navbar-brand" href="/">Mongo Scraper</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
         <a class="nav-link" href="/savedArticles">Saved articles</a>
       </li>
       <form class="form-inline">
-        <a id="scrape" class="btn btn-outline-success" role="button" href="/scrape">Scrape new articles!</a>
+        <a id="scrape" class="btn btn-outline-success mx-2" role="button" href="/scrape">Scrape new articles!</a>
         <a id="clear" class="btn btn-outline-success" role="button" href="/clear">Clear articles</a>
       </form>
     </ul>
@@ -23,8 +23,8 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <h1 class="display-4 text-center py-5">Mongo Scraper</h1>
+    <p class="lead text-center">Scrape articles in from the Teen Vogue politics site.</p>
   </div>
 </div>
 
@@ -32,11 +32,13 @@
   <div class="row">
     <div class="col-md-12">
       {{#each articles}}
-      <div class="card">
-        <div class="card-body">
-          <a id="linkinput"href="https://www.teenvogue.com/{{link}}">
+      <div class="card mb-3">
+        <div class="card-header ">
+          <a id="linkinput" href="https://www.teenvogue.com/{{link}}">
             <h5 id="titleinput" class="card-title">{{title}}</h2>
           </a>
+        </div>
+        <div class="card-body">
           <p id="summaryinput" class="card-text">{{summary}}<span>
               <button class="btn btn-primary saveArticle" data-id="{{this.id}}">Save article</button>
             </span></p>
