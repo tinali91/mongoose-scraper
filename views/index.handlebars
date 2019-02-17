@@ -21,10 +21,10 @@
   </div>
 </nav>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid shadow-sm" id="main-background">
   <div class="container">
-    <h1 class="display-4 text-center py-5">Mongo Scraper</h1>
-    <p class="lead text-center">Scrape articles in from the Teen Vogue politics site.</p>
+    <h1 class="display-2 text-center py-5 text-white">Mongo Scraper</h1>
+    <p class="lead text-center text-white"><strong>Scrape articles in from the Teen Vogue politics site.</strong></p>
   </div>
 </div>
 
@@ -32,15 +32,15 @@
   <div class="row">
     <div class="col-md-12">
       {{#each articles}}
-      <div class="card mb-3">
-        <div class="card-header ">
-          <a id="linkinput" href="https://www.teenvogue.com/{{link}}">
+      <div class="card border-success mb-3 shadow">
+        <div class="card-header bg-transparent">
+          <a id="linkinput" href="https://www.teenvogue.com/{{link}}" target="blank">
             <h5 id="titleinput" class="card-title">{{title}}</h2>
           </a>
         </div>
         <div class="card-body">
           <p id="summaryinput" class="card-text">{{summary}}<span>
-              <button class="btn btn-primary saveArticle" data-id="{{this.id}}">Save article</button>
+              <button class="btn btn-outline-success saveArticle" data-id="{{this.id}}">Save article</button>
             </span></p>
         </div>
       </div>

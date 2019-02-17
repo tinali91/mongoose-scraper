@@ -20,10 +20,10 @@
   </div>
 </nav>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid shadow-sm" id="saved-background">
   <div class="container">
-    <h1 class="display-4">Saved articles</h1>
-    <p class="lead">Your saved articles can be found here.</p>
+    <h1 class="display-2 text-center py-5 text-white">Saved articles</h1>
+    <p class="lead text-center text-white">Your saved articles can be found here.</p>
   </div>
 </div>
 
@@ -31,18 +31,23 @@
   <div class="row">
     <div class="col-md-12">
       {{#each articles}}
-      <div class="card mb-3">
-        <div class="card-header">
-          <a id="linkinput" href="https://www.teenvogue.com/{{link}}">
+      <div class="card shadow mb-3">
+        <div class="card-header bg-transparent">
+          <a id="linkinput" href="https://www.teenvogue.com/{{link}}" target="blank">
             <h5 id="titleinput" class="card-title">{{title}}</h2>
           </a>
         </div>
         <div class="card-body">
-          <p id="summaryinput" class="card-text">{{summary}}<span>
-              <button class="btn btn-danger mx-2 deleteArticle" data-id="{{this.id}}">Delete from saved</button>
-              <button type="button" class="btn btn-primary addNote" data-toggle="modal" data-target="#noteModal"
+          <div class="row">
+            <div class="col-md-8">
+              <p id="summaryinput" class="card-text">{{summary}}</p>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-outline-danger mx-2 deleteArticle" data-id="{{this.id}}">Delete from saved</button>
+              <button type="button" class="btn btn-outline-success addNote" data-toggle="modal" data-target="#noteModal"
                 data-id="{{this.id}}">Add Note</button>
-            </span></p>
+            </div>
+          </div>
         </div>
       </div>
 

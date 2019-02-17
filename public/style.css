@@ -1,3 +1,19 @@
 .saveArticle, .deleteArticle, .addNote {
   float: right;
 }
+
+#main-background {
+  background-image: url(/images/Gavel.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+#saved-background {
+  background-image: url(/images/Library.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+a {
+  color: green;
+}
